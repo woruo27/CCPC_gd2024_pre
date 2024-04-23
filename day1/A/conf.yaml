@@ -6,16 +6,19 @@ compile:
   java: ''
   pas: -O2
   py: ''
-data: []
+data:
+- cases: [1,2,3,4,5,6,7,8,9,10,11,12,13]
 folder: problem
 memory limit: 512 MiB
-name: A
+name: tian
 partial score: false
-pre: []
-samples: []
-time limit: 1.0
+samples:
+- cases: [1]
+time limit: 2.0
 title:
-  zh-cn: 用于试题标题的中文名称
+  zh-cn: 田字格
 type: program
-users: {}
+users:
+  psj:
+    std: {expected: == 100, path: psj/std.cpp}
 version: 2

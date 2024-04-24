@@ -8,7 +8,6 @@ signed main ()
 	for (int i = 2; i <= n; i++) anc[i] = i;
 	for (int i = 2; i <= n; i++) for (int j = i; j <= n; j += i) anc[find(j)] = find(i);
 	for (int i = 2; i < n; i++) for (int j = i + 1; j <= n; j++) ans = (ans + 1LL * (find(i) == find(j)) * i * j) % mod;
-	for (int i = 2; i < n; i++) for (int j = i + 1; j <= n; j++) if (find(i) == find(j)) printf("(%d, %d), ", i, j);
 	std::cout << ans << std::endl;
 	return 0;
 }

@@ -12,6 +12,7 @@ signed main (int argc, char *argv[])
 		int _x2 = inf.readInt(-1000000000, 1000000000); inf.readSpace();
 		int _y2 = inf.readInt(-1000000000, 1000000000); inf.readEoln();
 		ensuref((_x1 == _x2) + (_y1 == _y2) == 1, "x1 = x2 and y1 = y2 do not exactly have one true.");
+		ensuref((_x1 <= _x2) && (_y1 <= _y2), "Coordinate order invalid.");
 		if (_x1 == _x2) E[0][_x1].emplace_back(_y1, _y2);
 		if (_y1 == _y2) E[1][_y1].emplace_back(_x1, _x2);
 	}

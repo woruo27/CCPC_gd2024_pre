@@ -2,7 +2,7 @@
 
 {{ s('description') }}
 
-给定一个 $n - 1$ 个点的无向图，点的编号为 $2 \sim n$。对于所有的 $2 \le u, v \le n$，$u, v$ 间有一条边当且仅当 $u$ 是 $v$ 的正整数倍或 $v$ 是 $u$ 的正整数倍。定义 $f(u, v)$ 表示 $u$ 与 $v$ 是否连通：当 $u, v$ 连通时 $f(u, v) = 1$，否则 $f(u, v) = 0$。求：
+给定一个 $n - 1$ 个点的无向图，点的编号为 $2 \sim n$。对于所有的 $2 \le u < v \le n$，边 $(u, v)$ 存在当且仅当 $v$ 是 $u$ 的正整数倍。定义 $f(u, v)$ 表示 $u$ 与 $v$ 是否连通：当 $u, v$ 连通时 $f(u, v) = 1$，否则 $f(u, v) = 0$。求：
 
 $$\left(\sum_{u = 2} ^ {n - 1} \sum_{v = u + 1} ^ n f(u, v) \cdot u \cdot v\right) \bmod {998244353}$$
 
@@ -10,7 +10,7 @@ $$\left(\sum_{u = 2} ^ {n - 1} \sum_{v = u + 1} ^ n f(u, v) \cdot u \cdot v\righ
 
 {{ self.input_file() }}
 
-输入的第一行包含一个正整数 $n$。保证 $4 \le n \le 10 ^ {11}$。
+输入一行一个正整数 $n$。保证 $4 \le n \le 10 ^ {11}$。
 
 {{ s('output format') }}
 

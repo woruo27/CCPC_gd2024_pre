@@ -22,4 +22,6 @@ users:
   rsy:
     std: {expected: == 100, path: rsy/std.cpp}
     brute: {expected: == 10, path: rsy/brute.cpp}
+  psj:
+    std: {expected: == 100, path: psj/std.cpp}
 version: 2

@@ -9,7 +9,7 @@ name: tian
 partial score: false
 samples:
 - cases: [1]
-time limit: 2.0
+time limit: 3.0
 title:
   zh-cn: 田字格
 type: program

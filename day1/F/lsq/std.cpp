@@ -43,8 +43,8 @@ int dfs(int u,int p,int tar){
     return re;
 }
 int main(){
-    freopen("test.in","r",stdin);
-    freopen("test.ans","w",stdout);
+    // freopen("test.in","r",stdin);
+    // freopen("test.ans","w",stdout);
     int T;scanf("%d",&T);
     while(T--){
         int m;

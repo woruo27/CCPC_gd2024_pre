@@ -30,15 +30,11 @@
 
 {{ self.title_sample_description() }}
 
-这是第一组数据的样例说明。
+第一组输入数据，存在 $\lceil\frac{m}{n-1}\rceil=\lceil\frac{1}{3-1}\rceil=1$ 条 $1$ 到 $3$ 的边不相交路径 $1\to 3$。
 
-{{ s('sample', 2) }}
+第二组输入数据，存在 $\lceil\frac{m}{n-1}\rceil=\lceil\frac{7}{4-1}\rceil=3$ 条 $1$ 到 $4$ 的边不相交路径 $1\to 2\to 3\to 4,1\to 4,1\to 4$，注意到 $1\to 4$ 这条边虽然经过了两次，但是在原输入中这条边也输入了两次，所以认为它们还是不同的边。
 
-{{ self.sample_text() }}
-
-{{ self.title_sample_description() }}
-
-这是第二组数据的样例说明。
+第三组输入数据，存在 $\lceil\frac{m}{n-1}\rceil=\lceil\frac{5}{5-1}\rceil=2$ 条 $3$ 到 $5$ 的边不相交路径 $3\to 4\to 5,3\to 5$。
 
 {{ s('subtasks') }}
 

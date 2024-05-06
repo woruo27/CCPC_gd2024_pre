@@ -2,7 +2,7 @@
 
 {{ s('description') }}
 
-Menjihuang likes GCDs(greatest common divisor), especially positive integer pairs with a big GCD.
+Menji likes GCDs(greatest common divisor), especially positive integer pairs with a big GCD.
 
 Let $\gcd(x,y)$ denote the GCD of $x,y$. There are multiple queries, in each query you are given $L,R$, with $L\leq R$, find $\max\limits_{L\leq x<y\leq R}\gcd(x,y)$.
 

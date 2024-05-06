@@ -31,6 +31,7 @@ void link(int t,int x,int y){
     x=x+t*n,y=y+t*n;
     qwq(x,y);qwq(y,x);
 }
+int tp;
 int dfs(int u,int p,int tar){
     int re=(u==tar);
     for(int i=hd[u];i;i=e[i].nt){
@@ -38,11 +39,12 @@ int dfs(int u,int p,int tar){
         if(v==p)continue;
         re|=dfs(v,u,tar);
     }
-    if(re)printf("%d%c",(u-1)%n+1," \n"[p==0]);
+    if(re)st[++tp]=(u-1)%n+1;
     return re;
 }
 int main(){
-    // freopen("test.in","r",stdin);
+    freopen("test.in","r",stdin);
+    freopen("test.ans","w",stdout);
     int T;scanf("%d",&T);
     while(T--){
         int m;
@@ -73,7 +75,13 @@ int main(){
         else{
             printf("%d %d\n",s,t);
             for(int i=0;i<k;++i){
-                dfs(i*n+t,0,i*n+s);
+                tp=0;
+                dfs(i*n+s,0,i*n+t);
+                printf("%d ",tp);
+                while(tp){
+                    printf("%d",st[tp]);
+                    printf("%c"," \n"[(--tp)==0]);
+                }
             }
         }
         for(int i=1;i<=nk;++i)hd[i]=0;

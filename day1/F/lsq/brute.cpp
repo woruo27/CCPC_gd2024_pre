@@ -52,8 +52,9 @@ int dinic(int s,int t){
     }
     return re;
 }
+int st[maxm],tp;
 void sear(int u,int t){
-    printf("%d%c",u," \n"[u==t]);
+    st[++tp]=u;
     if(u==t)return;
     for(int i=hd[u];i;i=e[i].nt){
         int v=e[i].v,w=e[i].w;
@@ -65,6 +66,7 @@ void sear(int u,int t){
 }
 int main(){
     // freopen("test.in","r",stdin);
+    // freopen("test.out","w",stdout);
     int T;scanf("%d",&T);
     while(T--){
         int m;
@@ -79,8 +81,13 @@ int main(){
             for(int t=s+1;t<=n&&!ok;++t){
                 if(dinic(s,t)>=k){
                     printf("%d %d\n",s,t);
-                    for(int i=1;i<=k;++i)
+                    for(int i=1;i<=k;++i){
+                        tp=0;
                         sear(s,t);
+                        printf("%d ",tp);
+                        for(int i=1;i<=tp;++i)
+                            printf("%d%c",st[i]," \n"[i==tp]);
+                    }
                     ok=true;
                 }
                 for(int i=2;i<=num;++i)

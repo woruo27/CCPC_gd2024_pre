@@ -46,22 +46,20 @@ int main(){
 					if(!b[G[i][0]])G[i].pop_front();
 					else break;
 				}
-			for(re int i=1;i<=n;++i)H[i]=G[i];
-			for(re int i=1;i<=n;++i){
-				G[i].clear();
-				if(H[i].size())G[i].push_back(H[i][0]);
-				if(T[i]&&H[i].size()&&T[i]!=H[i][0])G[i].push_back(T[i]);
-				T[i]=0;
-			}
+			for(re int i=1;i<=n;++i)H[i]=G[i],T[i]=0;
 			for(re int i=1;i<=n;++i)random_shuffle(G[i].begin(),G[i].end());
 			for(re int i=1;i<=m;++i)my[i].clear();
 			re int s=0;
 			for(re int i=1;i<=n;++i)memset(v,0,sizeof(v)),s+=dfs(i);
 			if(!s)break;
 			for(re int i=1;i<=n;++i)G[i]=H[i];for(re int i=1;i<=m;++i)for(auto z:my[i])T[z]=i;
+			break;
 		}
 		memset(T,0,sizeof(T));for(auto z:Ans)T[z]=1;for(re int i=1;i<=n;++i)if(!T[i])Ans.push_back(i);
 		for(auto z:Ans)printf("%d ",z);puts("");
 		for(re int i=1;i<=n;++i)G[i].clear(),T[i]=0;for(re int i=1;i<=m;++i)my[i].clear();ans=0,Ans.clear();
 	}
 }
+
+
+

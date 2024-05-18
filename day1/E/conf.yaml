@@ -1,5 +1,5 @@
 args:
-  n: 1000
+  T: 300000
 compile:
   c: -O2 -std=c11
   cpp: -O2 -std=c++14
@@ -22,4 +22,6 @@ type: program
 users:
   ckw:
     std: {expected: == 100, path: ckw/std.cpp}
+  zyb:
+    std: {expected: == 100, path: zyb/std.cpp}
 version: 2

@@ -8,14 +8,17 @@ compile:
   py: ''
 data: []
 folder: problem
-memory limit: 512 MiB
-name: B
+memory limit: 1024 MiB
+name: lcps
 partial score: false
 pre: []
 samples: []
 time limit: 1.0
 title:
-  zh-cn: 用于试题标题的中文名称
+  zh-cn: 腊肠披萨
+  en: Lap Cheong Pizza Shop
 type: program
-users: {}
+users:
+  chj:
+    std: {expected: "== 100", path: "peacepiecepizza/std.cpp"}
 version: 2

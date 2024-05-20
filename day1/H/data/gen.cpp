@@ -35,7 +35,7 @@ void Gen1(re int L,re int R,re int k,int opt=0){
 		for(re int i=1;i<m;++i)printf("%d ",b[i]);printf("%d\n",b[m]);
 		for(re int i=1;i<=n;++i){
 			re int x=Rand(0,min(k,opt==2?m/2:m));
-			if(k==500)x=min(k,m)-rnd()%5;
+			if(k==500)x=min(k,opt==2?m/2:m)-rnd()%5;
 			if(x==0){
 				puts("0");
 				continue;

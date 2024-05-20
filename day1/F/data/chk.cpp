@@ -23,7 +23,7 @@ int main(int argc,char**argv){
         int n=inf.readInt(2,maxN,"n"),m=inf.readInt(1,maxM,"m");
         sn+=n;sm+=m;
         ensuref(sn<=maxN,format("sum of n should not exceed %d",sumN).c_str());
-        ensuref(sm<=maxM,format("sum of n should not exceed %d",sumM).c_str());
+        ensuref(sm<=maxM,format("sum of m should not exceed %d",sumM).c_str());
         for(int i=1;i<=m;++i){
             int u=inf.readInt(1,n,"u"),v=inf.readInt(1,n,"v");
             ensuref(u!=v,"No self-loop.");

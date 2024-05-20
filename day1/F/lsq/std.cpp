@@ -74,7 +74,7 @@ int main(){
         }
         else{
             printf("%d %d\n",s,t);
-            for(int i=0;i<k;++i){
+            for(int i=k-1;i>=0;--i){
                 tp=0;
                 dfs(i*n+s,0,i*n+t);
                 printf("%d ",tp);

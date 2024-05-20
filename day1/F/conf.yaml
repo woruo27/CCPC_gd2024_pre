@@ -25,4 +25,10 @@ users:
     std:
       path: 'lsq/std.cpp'
       expected: '== 100'
+    brute:
+      path: 'lsq/brute.cpp'
+      expected: '== 0'
+    std_ite:
+      path: 'lsq/std_ite.cpp'
+      expected: '== 0'
 version: 2

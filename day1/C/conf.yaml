@@ -18,5 +18,7 @@ title:
   zh-cn: DFS 序
   en: DFS Order
 type: program
-users: {}
+users:
+  ckw:
+    std: {expected: == 100, path: ckw/std.cpp}
 version: 2

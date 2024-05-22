@@ -31,7 +31,7 @@ int main(){
         printf("-1\n");return 0;
     }
     reverse(ord+1,ord+n+1);
-    rep(i,1,n)printf("%d ",ord[i]);puts("");
+    //rep(i,1,n)printf("%d ",ord[i]);puts("");
     rep(i,1,n){
         int u=ord[i];
         ans[u]=1;
@@ -43,6 +43,6 @@ int main(){
         }
     }
     printf("%d\n",tot);
-    rep(i,1,n)printf("%d ",ans[i]);
+    //rep(i,1,n)printf("%d ",ans[i]);
 	return 0;
 }

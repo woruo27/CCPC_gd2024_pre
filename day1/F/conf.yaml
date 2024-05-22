@@ -7,28 +7,60 @@ compile:
   pas: -O2
   py: ''
 data:
-  - cases: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
-    score: 100
-samples:
-  - cases: [1]
+- cases:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  score: 100
 folder: problem
 memory limit: 512 MiB
 name: Graph
 partial score: false
+pre: []
+samples:
+- cases:
+  - 1
 time limit: 1.0
 title:
-  zh-cn: 图
   en: Graph
+  zh-cn: 图
 type: program
 users:
   lsq:
-    std:
-      path: 'lsq/std.cpp'
-      expected: '== 100'
     brute:
-      path: 'lsq/brute.cpp'
-      expected: '== 0'
+      expected: == 0
+      path: lsq/brute.cpp
+    std:
+      expected: == 100
+      path: lsq/std.cpp
     std_ite:
-      path: 'lsq/std_ite.cpp'
-      expected: '== 0'
+      expected: == 0
+      path: lsq/std_ite.cpp
 version: 2

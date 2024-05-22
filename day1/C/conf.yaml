@@ -15,10 +15,12 @@ pre: []
 samples: []
 time limit: 1.0
 title:
-  zh-cn: DFS 序
   en: DFS Order
+  zh-cn: DFS 序
 type: program
 users:
   ckw:
-    std: {expected: == 100, path: ckw/std.cpp}
+    std:
+      expected: == 100
+      path: ckw/std.cpp
 version: 2

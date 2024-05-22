@@ -15,10 +15,12 @@ pre: []
 samples: []
 time limit: 1.0
 title:
-  zh-cn: 腊肠披萨
   en: Lap Cheong Pizza Shop
+  zh-cn: 腊肠披萨
 type: program
 users:
   chj:
-    std: {expected: "== 100", path: "peacepiecepizza/std.cpp"}
+    std:
+      expected: == 100
+      path: peacepiecepizza/std.cpp
 version: 2

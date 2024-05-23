@@ -34,4 +34,4 @@
 
 {{ s('subtasks') }}
 
-保证 $1\le n \le 2\times 10^5$，$1\le w_i \le 10^9$。
+保证 $1\le n \le 2\times 10^5$，$1\le w_i \le 10^8$。

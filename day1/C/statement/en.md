@@ -34,4 +34,4 @@ One integer, which denotes the maximum $\sum\limits_{i=1}^n p_iw_i$.
 
 {{ s('subtasks') }}
 
-It is guaranteed that $1\le n \le 2\times 10^5$，$1\le w_i \le 10^9$.
+It is guaranteed that $1\le n \le 2\times 10^5$，$1\le w_i \le 10^8$.

@@ -1,12 +1,12 @@
 folder: contest
 name: name for programmers
 short title:
-  zh-cn: 正式的简称
+  zh-cn: GDCPC
 subdir:
 - day1
 - day0
 subtitle:
-  zh-cn: 子标题如冬令营
+  zh-cn: GDCPC
 title:
-  zh-cn: 正式的中文名称
+  zh-cn: 2024年广东省大学生程序设计竞赛暨CCPC广州邀请赛
 version: 2

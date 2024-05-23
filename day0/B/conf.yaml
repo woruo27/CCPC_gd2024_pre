@@ -15,7 +15,7 @@ name: fold
 partial score: false
 samples:
   - cases: [1, 2, 3, 4]
-time limit: 2.5
+time limit: 3.0
 title:
   zh-cn: 多折较差验证
 type: program

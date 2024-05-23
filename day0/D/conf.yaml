@@ -6,7 +6,9 @@ compile:
   java: ''
   pas: -O2
   py: ''
-data: []
+data:
+  - cases: [1, 2, 3, 4, 5, 6, 7, 8]
+    score: 100
 folder: problem
 memory limit: 512 MiB
 name: mexmex

@@ -9,9 +9,9 @@ Given $n,m$, and $m$ conditions of the form $a_{x_i}\ge a_{y_i}+a_{z_i}(1 \le i 
 
 {{ self.input_file() }}
 
-First $m$ line two integers $n,m(1 \le n,m \le 2\times 10^5)$.
+The first line conntains two integers $n,m(1 \le n,m \le 2\times 10^5)$.
 
-After that $m$ rows, three integers $x_i,y_i,z_i$ in the $i$th row, representing a restriction $a_{x_i}\ge a_{y_i}+a_{z_i}(1\le x_i,y_i,z_i \le n)$.
+The following $m$ rows each contain three integers $x_i,y_i,z_i$(in the $i$th row), representing a restriction $a_{x_i}\ge a_{y_i}+a_{z_i}(1\le x_i,y_i,z_i \le n)$.
 {{ s('output format') }}
 
 {{ self.output_file() }}

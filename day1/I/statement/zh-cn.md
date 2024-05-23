@@ -3,7 +3,7 @@
 
 {{ s('description') }}
 
-给定 $n,m$，以及 $m$ 个形如 $a_{x_i}\ge a_{y_i}+a_{z_i}(1 \le i \le m)$ 的条件，为是否有一组正整数 $(a_1,a_2,\cdots,a_n)$ 满足所有条件，并且 $a_1+a_2+\cdots+a_n \le 10^{9}$。如果有，输出 $a_1+a_2+\cdots+a_n$ 的最小值；如果无解，输出 $-1$。
+给定 $n,m$，以及 $m$ 个形如 $a_{x_i}\ge a_{y_i}+a_{z_i}(1 \le i \le m)$ 的条件。问是否有一组**正整数** $(a_1,a_2,\cdots,a_n)$ 满足所有条件，并且 $a_1+a_2+\cdots+a_n \le 10^{9}$。如果有，输出 $a_1+a_2+\cdots+a_n$ 的最小值；如果无解，输出 $-1$。
 
 {{ s('input format') }}
 

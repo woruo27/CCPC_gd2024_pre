@@ -12,17 +12,19 @@ It is guaranteed **there is no self-loop** in the graph.
 
 {{ self.input_file() }}
 
-**The input consists of multiple test cases.** The first line contains a single integer $T$ which means the number of test cases. The description of the test cases follows.
+**The input consists of multiple test cases.** The first line contains a single integer $T(1\le T\le 10^4)$ which means the number of test cases. The description of the test cases follows.
 
-The first line contains two integers $n$ and $m$ which separately means the number of vertices and the number of edges in the graph.
+The first line contains two integers $n,m(2\le n\le 10^5,1\le m\le 2\times 10^5)$ which separately means the number of vertices and the number of edges in the graph.
 
-Each of the following $m$ lines contains two integers $u$ and $v$ which means there is an edge between $u$ and $v$.。
+Each of the following $m$ lines contains two integers $u,v(1\le u,v\le n,u\not=v)$ which means there is an edge between $u$ and $v$.。
+
+it is guaranteed that $\sum n\le 10^5$, $\sum m\le 2\times 10^5$. Here $\sum n,\sum m$ separately means the sum of the $n$ or $m$ in a single test.
 
 {{ s('output format') }}
 
 {{ self.output_file() }}
 
-For each test cases, if it is impossible to find such $u,v$ between which there exist $k$ edge-disjoint paths, output a single integer `-1`. Otherwise you should output a line wtih two integers $u,v$ first. In the each of the following $k$ lines you should first output a integer $t$ which means the lengths of the path you choose, followed with $t$ integers $x_1,x_2,\dots,x_t$ to describe a path $x_1\to x_2\to\cdots\to x_t$. You need to guarantee that $x_1=u$ and $x_t=v$. Also the paths you output need to be edge-disjoint.
+For each test cases, if it is impossible to find such $u,v$ between which there exist $k$ edge-disjoint paths, output a single integer `-1`. Otherwise you should output a line with two integers $u,v$ first. In the each of the following $k$ lines you should first output a integer $t$ which means the lengths of the path you choose, followed with $t$ integers $x_1,x_2,\dots,x_t$ to describe a path $x_1\to x_2\to\cdots\to x_t$. You need to guarantee that $x_1=u$ and $x_t=v$. Also the paths you output need to be edge-disjoint.
 
 {{ s('sample', 1) }}
 
@@ -36,6 +38,3 @@ In the second test case, there exist $\lceil\frac{m}{n-1}\rceil=\lceil\frac{7}{4
 
 In the third test case, there exist $\lceil\frac{m}{n-1}\rceil=\lceil\frac{5}{5-1}\rceil=2$ edge-disjoint paths between $3$ and $5$: $3\to 4\to 5,3\to 5$.
 
-{{ s('subtasks') }}
-
-For all the tests, it is guaranteed that $1\le T\le 10^4$,$2\le n,\sum n\le 10^5$,$1\le m,\sum m\le 2\times 10^5$. Here $\sum n,\sum m$ separately means the sum of the $n$ or $m$ in a single test.

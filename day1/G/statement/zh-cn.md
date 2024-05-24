@@ -4,7 +4,7 @@
 
 Menji 喜欢最大公约数，特别是最大公约数大的正整数对。
 
-令 $\gcd(x,y)$ 表示 $x,y$ 的最大公约数，多次给定 $L,R$，保证 $L\leq R$，求 $\max\limits_{L\leq x<y\leq R}\gcd(x,y)$。
+令 $\gcd(x,y)$ 表示 $x,y$ 的最大公约数，多次给定 $L,R$，保证 $L<R$，求 $\max\limits_{L\leq x<y\leq R}\gcd(x,y)$。
 
 {{ s('input format') }}
 

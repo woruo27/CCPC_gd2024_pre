@@ -27,7 +27,7 @@ int main()
 		debug(id)sp;string ids;for(int x=id;x;x/=10) ids+=char('0'+x%10);
 		reverse(ids.begin(),ids.end()),freopen((ids+".in").c_str(),"r",stdin);
 		int n=inn();R(n,1,200000);
-		rep(i,1,n) R(inn(),1,1000000000);
+		rep(i,1,n) R(inn(),1,100000000);
 		rep(i,2,n) R(inn(),1,i-1);
 		fclose(stdin);
 		debug(id)ln;

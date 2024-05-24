@@ -5,6 +5,7 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 	// Also the validator
+	// registerTestlibCmd(argc, argv);
 	registerLemonChecker(argc, argv);
 	int n = inf.readInt(1, 1000000000, "n");
 	double p = inf.readStrictDouble(0.000001, 0.999999, 1, 6, "p");

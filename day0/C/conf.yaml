@@ -19,5 +19,9 @@ time limit: 1.0
 title:
   zh-cn: 分治乘法
 type: program
-users: {}
+users:
+  # pinkrabbit:
+  #   std: {path: pinkrabbit/ac.cpp, expected: == 100}
+  ei:
+    std: {path: ei/nsqrtlog.cpp, expected: == 100}
 version: 2

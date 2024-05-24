@@ -16,9 +16,9 @@ Due to some mysterious factor from the `T` Association, little `c` suddenly wond
 
 **This problem has multiple sets of data.**
 
-The first line contains an integer $T$ indicating the number of data sets.
+The first line contains an integer $T(1\le T\le 3\times 10^5)$ indicating the number of data sets.
 
-The next $T$ rows, each with two positive integers $n,z$ are as described above.
+The next $T$ rows, each with two positive integers $n,z(1\le z<n\le 10^{18})$ are as described above.
 
 {{ s('output format') }}
 
@@ -45,10 +45,6 @@ For $n=4, z=3$, let the winners and losers be `1` and `4`, then the sum of the s
 {{ s('sample', 2) }}
 
 {{ self.sample_text() }}
-
-{{ s('数据范围') }}
-
-For all data, there are $1\le T\le 3\times 10^5, 1\le z<n\le 10^{18}$.
 
 {{ s('hint') }}
 

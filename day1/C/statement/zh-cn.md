@@ -28,9 +28,9 @@
 
 {{ self.title_sample_description() }}
 
-{{ s('sample', 2) }}
+按照 $(1,3,5,2,4)$ 的访问顺序可以取得最大值 $1\times 8+2\times 3+3\times 4+4\times 6+5\times 5=75$。
 
-{{ self.sample_text() }}
+注意 $(1,3,2,4,5)$ 不是一个合法的访问顺序。
 
 {{ s('subtasks') }}
 

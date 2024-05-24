@@ -28,9 +28,9 @@ One integer, which denotes the maximum $\sum\limits_{i=1}^n p_iw_i$.
 
 {{ self.title_sample_description() }}
 
-{{ s('sample', 2) }}
+The traversal order $(1,3,5,2,4)$ derives the maximum value $1\times 8+2\times 3+3\times 4+4\times 6+5\times 5=75$.
 
-{{ self.sample_text() }}
+Note that $(1,3,2,4,5)$ is not a valid traversal order.
 
 {{ s('subtasks') }}
 

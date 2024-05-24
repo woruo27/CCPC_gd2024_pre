@@ -22,7 +22,7 @@ int inn() { int x;scanf("%d",&x);return x; }
 inline void R(int x,int l,int r) { assert(x>=l&&x<=r); }
 int main()
 {
-	rep(id,1,1)
+	rep(id,1,35)
 	{
 		debug(id)sp;string ids;for(int x=id;x;x/=10) ids+=char('0'+x%10);
 		reverse(ids.begin(),ids.end()),freopen((ids+".in").c_str(),"r",stdin);

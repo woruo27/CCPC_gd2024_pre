@@ -2,20 +2,21 @@ args: null
 compile:
   cpp: -O2 -std=c++17
 data:
-- cases:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
+  - cases:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    score: 100
 folder: problem
 memory limit: 512 MiB
 name: tian

@@ -26,13 +26,8 @@ void insert(char *op, char *ed, int key, unsigned long long h, int val) {
 	char *s1, *s2;
 	for (Substr *p = head[key]; p != nullptr; p = p -> next) {
 		if (h == p -> h && val == p -> val && p -> end - p -> start == ed - op) {
-			for (s1 = op, s2 = p -> start; s1 != ed; ++s1, ++s2) {
-				if (*s1 != *s2) break;
-			}
-			if (s1 == ed) {
-				++(p -> cnt);
-				return ;
-			}
+			++(p -> cnt);
+			return ;
 		}
 	}
 	sub[++stot] = (Substr){h, op, ed, head[key], val, 1};
@@ -45,10 +40,7 @@ int getVal(char *op, char *ed, int key, unsigned long long h) {
 	for (Substr *p = head[key]; p != nullptr; p = p -> next) {
 		// fprintf(stderr, "%d %llu", p - sub, p -> h);
 		if (h == p -> h && p -> end - p -> start == ed - op) {
-			for (s1 = op, s2 = p -> start; s1 != ed; ++s1, ++s2) {
-				if (*s1 != *s2) break;
-			}
-			if (s1 == ed) return p -> val;
+			return p -> val;
 		}
 		// fprintf(stderr, "DO NOT MATCH\n");
 	}

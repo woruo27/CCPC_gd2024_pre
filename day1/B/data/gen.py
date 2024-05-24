@@ -50,11 +50,11 @@ def getRepeatingPizza(num, length, alphabet = ALPHABET, p = None, corelen = 5, c
 	rng = np.random.default_rng()
 
 	if coretype == SAME_CORE:
-		cores = [rng.choice(list(alphabet), corelen, p = p)] * num
+		cores = ["".join(rng.choice(list(alphabet), corelen, p = p))] * num
 	elif coretype == RAND_CORE:
-		cores = [rng.choice(list(alphabet), corelen, p = p) for _ in range(num)]
+		cores = ["".join(rng.choice(list(alphabet), corelen, p = p)) for _ in range(num)]
 	elif coretype == SLICE_CORE:
-		cores = [rng.choice(list(alphabet), corelen, p = p)]
+		cores = ["".join(rng.choice(list(alphabet), corelen, p = p))]
 	else:
 		raise ValueError(f"Unidentified {coretype = }")
 	
@@ -62,7 +62,7 @@ def getRepeatingPizza(num, length, alphabet = ALPHABET, p = None, corelen = 5, c
 	for i in range(num):
 		si = cores[i]
 		while len(si) < length:
-			si = str(rng.choice(alphabet, p = p)).join([si] * rng.integers(2, max_repetition, endpoint = True))
+			si = str(rng.choice(list(alphabet), p = p)).join([si] * rng.integers(2, min(max_repetition, length // len(si) + 1), endpoint = True))
 		if len(si) > length:
 			start = rng.integers(len(si) - length, endpoint = True)
 			s.append(si[start : start + length])
@@ -88,6 +88,31 @@ def genSlices(l, nmain = 10, mainlen = S_LIMIT // 20, alphabet = ALPHABET, p = N
 				break
 		s.append(s[u][-leftlen:] + s[v][:x - leftlen] if leftlen else s[v][:x])
 
+	return s
+
+def genSlicedPizza(l, nmain = 10, mainlen = S_LIMIT // 20, alphabet = ALPHABET, p = None, p_new_slice = 0.5, minlen = 3, **extra_param):
+	rng = np.random.default_rng()
+	mainpizza = getRepeatingPizza(1, 2 * S_LIMIT, alphabet = alphabet, p = p, **extra_param)[0]
+	s = []
+	for i in range(nmain):
+		start = rng.integers(len(mainpizza) - mainlen, endpoint = True)
+		s.append(mainpizza[start : start + mainlen])
+	
+	nminor = l - nmain
+	if nminor:
+		minorlen = rng.multinomial(S_LIMIT - mainlen * nmain - minlen * nminor, np.ones(nminor) / (nminor)) + minlen
+		for x in minorlen:
+			if rng.random() < p_new_slice:
+				start = rng.integers(len(mainpizza) - x, endpoint = True)
+				s.append(mainpizza[start : start + x])
+			else:
+				while True:
+					leftlen = rng.integers(x, endpoint = True)
+					u, v = rng.integers(len(s), size = 2)
+					if len(s[u]) >= leftlen and len(s[v]) >= x - leftlen:
+						break
+				s.append(s[u][-leftlen:] + s[v][:x - leftlen] if leftlen else s[v][:x])
+	
 	return s
 
 def genTestcase(filename, gen, l, **extra_param):
@@ -133,24 +158,36 @@ for i in range(1, TASK_NUM + 1):
 	# add testcases below
 	rng = np.random.default_rng()
 
+	'''
 	testcase.gen(genTriangle, 2448)
-	for l in (10, int(L_LIMIT ** 0.5), L_LIMIT // 20, L_LIMIT):
+	for l in (10, int(S_LIMIT ** 0.5), S_LIMIT // 20, S_LIMIT):
 		testcase.gen(genSameChar, l, ch = ALPHABET[rng.integers(26)])
-	for l in (10, int(L_LIMIT ** 0.5), L_LIMIT // 20, L_LIMIT):
+	for l in (10, int(S_LIMIT ** 0.5), S_LIMIT // 20, S_LIMIT):
 		testcase.gen(genSameString, l)
-	for l in (10, int(L_LIMIT ** 0.5), L_LIMIT // 20, L_LIMIT):
+	for l in (10, int(S_LIMIT ** 0.5), S_LIMIT // 20, S_LIMIT):
 		testcase.gen(genSameString, l, alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.9, 0.1])
 
-	for l in (100, L_LIMIT // 50, L_LIMIT // 20):
+	for l in (100, S_LIMIT // 50, S_LIMIT // 20):
 		testcase.gen(genSlices, l, getPizza = getRandPizza)
 		testcase.gen(genSlices, l, getPizza = getRandPizza, alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.9, 0.1])
 	
-	for l in (100, L_LIMIT // 50, L_LIMIT // 20):
+	for l in (100, S_LIMIT // 50, S_LIMIT // 20):
 		for coretype in (SAME_CORE, RAND_CORE, SLICE_CORE):
 			for max_repetition in (5, 250):
-				testcase.gen(genSlices, l, getPizza = getRandPizza, coretype = coretype, max_repetition = max_repetition)
-				testcase.gen(genSlices, l, getPizza = getRandPizza, coretype = coretype, max_repetition = max_repetition, alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.8, 0.2])
-	
+				testcase.gen(genSlices, l, getPizza = getRepeatingPizza, coretype = coretype, max_repetition = max_repetition)
+				testcase.gen(genSlices, l, getPizza = getRepeatingPizza, coretype = coretype, max_repetition = max_repetition, alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.8, 0.2])
+
+	'''
+	testcase.skip(55)
+
+	testcase.gen(genSlicedPizza, 40, nmain = 40, mainlen = S_LIMIT // 40, max_repetition = 30)
+	testcase.gen(genSlicedPizza, 40, nmain = 40, mainlen = S_LIMIT // 40, alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.8, 0.2], max_repetition = 10)
+
+	testcase.gen(genSlicedPizza, S_LIMIT // 30, max_repetition = 50)
+	testcase.gen(genSlicedPizza, S_LIMIT // 30, alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.8, 0.2], p_new_slice = 0.8, max_repetition = 10)
+	testcase.gen(genSlicedPizza, S_LIMIT // 30, alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.8, 0.2], p_new_slice = 0.2, max_repetition = 10)
+
+				
 	# add testcases above		
 	log("Subtask {} done. ({} - {})".format(i, pre + 1, testcase.cnt))
 	# log("Subtask {} done. (test: {} - {}; pre: {} - {})".format(i, pre + 1, testcase.cnt, pre_pre + 1, precase.cnt))

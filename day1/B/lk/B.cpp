@@ -110,10 +110,10 @@ const int p[]={956849779,982649851,982649851};
 const int q[]={17,31,59};
 const int k=2;
 int l,c,mo;
-array<int,k+2> pre[1000005],suf[1000005]; 
-char s[1000005];
-int h[k],pw[1000005],hp[k];
-int fail[1000005];
+array<int,k+2> pre[3000005],suf[3000005]; 
+char s[3000005];
+int h[k],pw[3000005],hp[k];
+int fail[3000005];
 signed main(){
 #ifdef QAQAutoMaton 
 	freopen("B.in","r",stdin);
@@ -122,7 +122,7 @@ signed main(){
 	read(l,c,mo);
 	int m=0;
 	pw[0]=1;
-	for(int i=1;i<=1000000;++i)pw[i]=(ll)pw[i-1]*c%mo;
+	for(int i=1;i<=3000000;++i)pw[i]=(ll)pw[i-1]*c%mo;
 	int ans=(ll)l*l%mo;
 	for(;l;--l){
 		read(s+1);
@@ -166,7 +166,7 @@ signed main(){
 			int c1=0,c2=0;
 			while(pre[i+c1]==pre[i])++c1;
 			while(suf[j+c2]==suf[j])++c2;
-			ans=(ans+(ll)c1*c2%mo*pre[i][k+1])%mo;
+			ans=(ans+(ll)c1*c2%mo*(pre[i][k+1]+mo))%mo;
 			i+=c1;j+=c2;
 		}
 	}

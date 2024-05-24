@@ -10,9 +10,9 @@ Find an optimal DFS traversal order such that $\sum\limits_{i=1}^n p_iw_i$ is ma
 
 {{ self.input_file() }}
 
-The first line contains a single integer $n$.
+The first line contains a single integer $n(1\le n \le 2\times 10^5)$.
 
-The second line contains $n$ integers, in which the $i$-th integer denotes $w_i$.
+The second line contains $n$ integers, in which the $i$-th integer denotes $w_i(1\le w_i \le 10^8)$.
 
 The third line contains $n-1$ integers, in which the $i$-th integer denotes the parent of vertex $i+1$ on the tree. The value of the $i$-th integer is in $[1,i]$.
 
@@ -28,10 +28,6 @@ One integer, which denotes the maximum $\sum\limits_{i=1}^n p_iw_i$.
 
 {{ self.title_sample_description() }}
 
-The traversal order $(1,3,5,2,4)$ derives the maximum value $1\times 8+2\times 3+3\times 4+4\times 6+5\times 5=75$.
+The traversal order $(1,3,5,4,2)$ derives the maximum value $1\times 8+2\times 3+3\times 4+4\times 6+5\times 5=75$.
 
 Note that $(1,3,2,4,5)$ is not a valid traversal order.
-
-{{ s('subtasks') }}
-
-It is guaranteed that $1\le n \le 2\times 10^5$，$1\le w_i \le 10^8$.

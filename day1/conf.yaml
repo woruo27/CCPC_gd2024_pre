@@ -6,13 +6,13 @@ subdir:
 - A
 - B
 - C
-- E
 - D
+- E
 - F
 - G
 - H
 - I
 - J
 title:
-  zh-cn: 第一试
+  zh-cn: 正式赛
 version: 2

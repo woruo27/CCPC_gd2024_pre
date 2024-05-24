@@ -36,17 +36,17 @@ data:
   - 26
   - 27
   - 28
+  score: 100
 folder: problem
 memory limit: 512 MiB
 name: menji
 partial score: false
-pre: []
 samples:
 - cases:
   - 1
-time limit: 5.0
+time limit: 1.0
 title:
-  zh-cn: ͼ
+  zh-cn: Menji 和 gcd
 type: program
 users:
   gyh:
@@ -59,4 +59,8 @@ users:
     test:
       expected: == 0
       path: ./gyh/test.cpp
+  ckw:
+    std:
+      expected: == 100
+      path: ./ckw/std.cpp
 version: 1

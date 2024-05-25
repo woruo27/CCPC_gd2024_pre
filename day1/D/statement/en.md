@@ -44,7 +44,7 @@ For each request, output a single line. If the telephone number corresponds to a
 
 To better demonstrate the problem, real-world telephone numbers are adopted in this sample. The corresponding telephone network $T$ is shown in the following graph.
 
-{{ img('sample1en.png', size = 0.5, align = 'middle', inline = False, caption='The Telephone Network Represented by Sample 1.', label='fig:sample') }}
+{{ img('sample1_en.png', size = 0.25, align = 'middle', inline = False, caption='The Telephone Network Represented by Sample 1.', label='fig:sample') }}
 
 - The first query is from School of Computer Science, Peking University to Logistics Integrated Service Platform / Comprehensive Service Hotline, Tsinghua University. Since the two vertices share the parent vertex $3$ (which represents Beijing), and $d_3 = \varepsilon$, one can dial the original telephone number directly. The second query is the same as the first one, except the area codes are appended before the telephone number, and it is considered invalid to add area codes when unnecessary in this problem.
 

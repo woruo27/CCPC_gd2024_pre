@@ -75,7 +75,7 @@ users:
       path: psj/std.cpp
   rsy:
     brute:
-      expected: == 10
+      expected: == 0
       path: rsy/brute.cpp
     std:
       expected: == 100

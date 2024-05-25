@@ -76,4 +76,8 @@ users:
     std:
       expected: == 100
       path: ./gyh/std.cpp
+  rsy:
+    std:
+      expected: == 100
+      path: ./rsy/match.cpp
 version: 1

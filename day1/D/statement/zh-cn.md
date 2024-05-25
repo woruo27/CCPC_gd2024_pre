@@ -44,7 +44,7 @@
 
 为方便理解题意，该样例使用了实际存在的电话号码。其表示的电话网络见下图。
 
-{{ img('sample1.png', size = 0.25, align = 'middle', inline = False, caption='样例 1 表示的电话网络', label='fig:sample') }}
+{{ img('sample1.png', size = 0.5, align = 'middle', inline = False, caption='样例 1 表示的电话网络', label='fig:sample') }}
 
 - 第一个询问的通话请求是从北京大学计算机学院至清华大学后勤综合服务热线/校内查号台。因为这两个结点的父结点均为结点 $3$（对应北京市），且父结点 $d_3=\varepsilon$，所以直接拨打对应电话即可。第二个询问为第一个询问加上区号的版本，在本题中认为该询问的电话号码无法拨通。
 

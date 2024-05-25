@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int MAXN = 2e5, MAXLEN = 3e6;
+const int MAXN = 1e5, MAXLEN = 3e6;
 int f[MAXN + 3], t[MAXN + 3]; bool havechild[MAXN + 3];
 
 int main(){

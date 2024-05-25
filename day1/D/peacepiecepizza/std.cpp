@@ -190,6 +190,13 @@ void compose(char * begin, const char *end, HashFun &f, HashFun &inv) {
 	}
 	return ;
 }
+int fastin() {
+	int i; char ch;
+	while (ch = getchar(), ch < '0' || ch > '9');
+	i = ch - '0';
+	while (ch = getchar(), ch >= '0' && ch <= '9') i = i * 10 + (ch - '0');
+	return i;
+}
 char buf[10000008];
 int main() {
 	int n, q, i, j, v, fa, len;
@@ -199,9 +206,10 @@ int main() {
 		digit[i] = (HashFun) {BASE, w[i], CASE, m[i]};
 		tigid[i] = (HashFun) {ESAB, 1ll * (MOD - ESAB) * w[i] % MOD, ESAC, 1ll * (NOD - ESAC) * m[i] % NOD};
 	}
-	scanf("%d %d", &n, &q);
+	n = fastin(); q = fastin();
 	for (i = 1; i <= n; ++i) {
-		scanf("%d %d %s", &fa, &isLeaf[i], buf);
+		fa = fastin(); isLeaf[i] = fastin();
+		scanf("%s", buf);
 		if (isLeaf[i]) {
 			for (j = strlen(buf) - 1; j >= 0; --j) {
 				a[i] = digit[buf[j] - '0'](a[i]);
@@ -227,7 +235,8 @@ int main() {
 		}
 	}
 	for (i = 1; i <= q; ++i) {
-		scanf("%d %s", &v, buf);
+		v = fastin();
+		scanf("%s", buf);
 		dial[v].push_back(i);
 		for (j = strlen(buf) - 1; j >= 0; --j) {
 			r[i] = digit[buf[j] - '0'](r[i]);

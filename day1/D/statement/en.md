@@ -18,7 +18,7 @@ Given several dialing requests within $T$, each of which consists of a vertex di
 
 {{ self.input_file() }}
 
-The first line of the input contains two positive integers $n$ and $q$ ($2\le n\le 2\times 10^5$; $1\le q\le 2\times 10^5$), representing the number of vertices in the network $T$ and the number of requests.
+The first line of the input contains two positive integers $n$ and $q$ ($2\le n\le 10^5$; $1\le q\le 10^5$), representing the number of vertices in the network $T$ and the number of requests.
 
 Each of the next $n$ lines contains two nonnegative integers $f_i$, $t_i$ and a string $s_i$, separated by a space character, describing the $i$-th vertex of $T$. If $f_i>0$, it represents the parent of $i$ in $T$; otherwise $f_i = 0$, which means $i$ is the root of $T$. $t_i \in \{0, 1\}$ indicates whether the vertex $i$ is a leaf,
 
@@ -60,7 +60,7 @@ To better demonstrate the problem, real-world telephone numbers are adopted in t
 
 - The ninth query is making a call from the Graduate School of Information Science and Technology, Osaka University to the Graduate School of Frontier Biosciences which is also located in the Suita campus. Since $d_{20}=\varepsilon$, dialing using the internal telephone line of the Suita campus requires no prefix, which means dialing the corresponding $4$ digit number is sufficient.
 
-- The tenth query is a call to the Department of Information and Computer Science of Osaka University, made by the Graduate School of Information Science and Technology. Since the undergraduate department is located in Toyonaka campus instead of Suita campus, the secondary area code to which the Toyonaka campus belongs, $c_{23}=$ `6850`, is necessary when calling (or actually you may use the prefix of the internal telephone line to Toyonaka campus, which is `172`, ).
+- The tenth query is a call to the Department of Information and Computer Science of Osaka University, made by the Graduate School of Information Science and Technology. Since the undergraduate department is located in Toyonaka campus instead of Suita campus, the secondary area code to which the Toyonaka campus belongs, $c_{23}=$ `6850`, is necessary when calling (or actually you may use the prefix of the internal telephone line to Toyonaka campus, which is `172`, but not available in this problem).
 
 {{ s('sample', 2) }}
 

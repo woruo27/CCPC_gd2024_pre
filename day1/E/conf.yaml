@@ -19,7 +19,7 @@ samples:
 - cases:
   - 1
   - 2
-time limit: 2.0
+time limit: 1.0
 title:
   zh-cn: 循环赛
 type: program

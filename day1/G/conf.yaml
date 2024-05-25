@@ -44,7 +44,7 @@ partial score: false
 samples:
 - cases:
   - 1
-time limit: 1.0
+time limit: 2.0
 title:
   zh-cn: Menji 和 gcd
 type: program

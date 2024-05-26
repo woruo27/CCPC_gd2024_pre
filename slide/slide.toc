@@ -4,4 +4,5 @@
 \beamer@sectionintoc {4}{F 图 by \itshape xiaolilsq}{34}{0}{4}
 \beamer@sectionintoc {5}{G Menji 和 gcd by \itshape gyh-20}{41}{0}{5}
 \beamer@sectionintoc {6}{H 小班课 by \itshape gyh-20}{48}{0}{6}
-\beamer@sectionintoc {7}{J 另一个计数问题 by \itshape Renshey}{56}{0}{7}
+\beamer@sectionintoc {7}{I 不等式 by \itshape JohnVictor36}{56}{0}{7}
+\beamer@sectionintoc {8}{J 另一个计数问题 by \itshape Renshey}{59}{0}{8}

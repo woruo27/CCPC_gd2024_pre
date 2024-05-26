@@ -48,7 +48,7 @@ samples:
   - 1
 time limit: 1.0
 title:
-  en: Graph
+  # en: Graph
   zh-cn: 图
 type: program
 users:

@@ -17,7 +17,7 @@ samples:
   - cases: [1, 2]
 time limit: 1.5
 title:
-  en: Lap Cheong Pizza Shop
+  # en: Lap Cheong Pizza Shop
   zh-cn: 腊肠披萨
 type: program
 users:

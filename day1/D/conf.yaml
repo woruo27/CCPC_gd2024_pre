@@ -23,4 +23,6 @@ type: program
 users:
   chj:
     std: {expected: == 100, path: peacepiecepizza/std.cpp}
+  psj:
+    std: {expected: == 100, path: psj/std.cpp}
 version: 2

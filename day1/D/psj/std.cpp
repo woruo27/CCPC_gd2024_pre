@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int _ = 2e5 + 7, P[2] = {(int)1e9 + 7, (int)1e9 + 9}, base = 11; int pwp[2][_];
+const int _ = 1e5 + 7, __ = 3e6 + 7, P[2] = {(int)1e9 + 7, (int)1e9 + 9}, base = 11; int pwp[2][__];
 
 struct Hash{
 	int hashval[2], len; Hash(int x = 0){hashval[0] = hashval[1] = x; len = !!x;}
@@ -29,7 +29,7 @@ struct String{
 		for(int i = 0 ; i < str.size() ; ++i)
 			prefix.push_back(prefix.back() + Hash(str[i] - '0' + 1));
 	}
-	Hash all(){return prefix.back();}
+	Hash all(){assert(prefix.size()); return prefix.back();}
 	Hash getsuffix(Hash pref){
 		if(pref.len <= str.size() && prefix[pref.len] == pref)
 			return prefix.back() - prefix[pref.len];
@@ -94,10 +94,11 @@ void getval(vector < Data > &dat1, vector < Data > &dat2, int m, bool twoside = 
 
 void dfz(int x){
 	totsz = 0; mnsz = 1e9; getsz(x); getmn(x); if(mnsz == 1e9) return;
-	vis[x = mnid] = 1; vector < Data > ch_data;
-	for(auto t : ch[x]) if(!vis[t]){Data tmp; getdata(t, 1, tmp); ch_data.push_back(tmp);}
+	vis[x = mnid] = 1; vector < Data > ch_data; assert(x <= n);
+	for(auto t : ch[x]) if(!vis[t]){Data tmp; getdata(t, 1, tmp); ch_data.push_back(tmp); }
 	if(f[x] && !vis[f[x]]){
-		Data tmp; getdata(f[x], 0, tmp, tokens[x][1].all(), tokens[x][0].all()); vector < Data > fa_data{tmp};
+		Data tmp; getdata(f[x], 0, tmp, tokens[x][1].all(), tokens[x][0].all());
+		vector < Data > fa_data{tmp};
 		getval(fa_data, ch_data, 1, 1);
 	}
 	for(auto &t: ch_data) for(auto &p: t.endpoints) p.match = tokens[x][2].all() + p.match;
@@ -108,7 +109,7 @@ void dfz(int x){
 
 int main(){
 	pwp[0][0] = pwp[1][0] = 1;
-	for(int j = 0 ; j < 2 ; ++j) for(int i = 1 ; i < _ ; ++i) pwp[j][i] = 1ll * pwp[j][i - 1] * base % P[j];
+	for(int j = 0 ; j < 2 ; ++j) for(int i = 1 ; i < __ ; ++i) pwp[j][i] = 1ll * pwp[j][i - 1] * base % P[j];
 	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0); cin >> n >> q;
 	for(int i = 1 ; i <= n ; ++i){
 		string str, token; cin >> f[i] >> s[i] >> str; ch[f[i]].push_back(i);

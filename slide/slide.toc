@@ -1,8 +1,9 @@
-\beamer@sectionintoc {1}{A 田字格 by \itshape Itst}{5}{0}{1}
-\beamer@sectionintoc {2}{C DFS 序 by \itshape EliminateSpace}{13}{0}{2}
-\beamer@sectionintoc {3}{E 循环赛 by \itshape ckw20}{20}{0}{3}
-\beamer@sectionintoc {4}{F 图 by \itshape xiaolilsq}{34}{0}{4}
-\beamer@sectionintoc {5}{G Menji 和 gcd by \itshape gyh-20}{41}{0}{5}
-\beamer@sectionintoc {6}{H 小班课 by \itshape gyh-20}{48}{0}{6}
-\beamer@sectionintoc {7}{I 不等式 by \itshape JohnVictor36}{56}{0}{7}
-\beamer@sectionintoc {8}{J 另一个计数问题 by \itshape Renshey}{59}{0}{8}
+\beamer@sectionintoc {1}{I 不等式 by \itshape JohnVictor36}{5}{0}{1}
+\beamer@sectionintoc {2}{G Menji 和 gcd by \itshape gyh-20}{8}{0}{2}
+\beamer@sectionintoc {3}{C DFS 序 by \itshape EliminateSpace}{15}{0}{3}
+\beamer@sectionintoc {4}{E 循环赛 by \itshape ckw20}{22}{0}{4}
+\beamer@sectionintoc {5}{A 田字格 by \itshape Itst}{36}{0}{5}
+\beamer@sectionintoc {6}{B 腊肠披萨 by \itshape SpiritualKhorosho}{44}{0}{6}
+\beamer@sectionintoc {7}{F 图 by \itshape xiaolilsq}{51}{0}{7}
+\beamer@sectionintoc {8}{H 小班课 by \itshape gyh-20}{58}{0}{8}
+\beamer@sectionintoc {9}{J 另一个计数问题 by \itshape Renshey}{66}{0}{9}

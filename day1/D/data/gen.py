@@ -15,7 +15,7 @@ ALPHABET = "0123456789"
 def log(string):
 	print(string, flush = True)
 	with open("gen.log", "a") as f:
-		f.write("[{}] {}\l".format(datetime.datetime.now(), string))
+		f.write("[{}] {}\n".format(datetime.datetime.now(), string))
 
 class Tree:
 	def __init__(self):
@@ -326,7 +326,7 @@ def genRandUniformQuery(tree: Tree, q = Q_LIMIT, alphabet = ALPHABET, p = None, 
 
 	return queries
 
-def genRandMixedQuery(tree: Tree, q = Q_LIMIT, alphabet = ALPHABET, p = None, frac_valid = 0.5, **extra_param):
+def genRandMixedQuery(tree: Tree, q = Q_LIMIT, alphabet = ALPHABET, p = None, frac_valid = 0.8, **extra_param):
 	rng = np.random.default_rng()
 	valid = genRandValidQuery(tree)
 	queries = [""] * q
@@ -335,17 +335,26 @@ def genRandMixedQuery(tree: Tree, q = Q_LIMIT, alphabet = ALPHABET, p = None, fr
 	oldid = rng.permutation(len(valid))
 	newid = rng.permutation(q)
 	for i in oldid:
-		if len(valid[i]) + total_length <= int(LEN_LIMIT * frac_valid):
+		if len(valid[i][1]) + total_length <= int(LEN_LIMIT * frac_valid):
 			queries[newid[cnt]] = valid[i]
-			total_length += len(valid[i])
+			total_length += len(valid[i][1])
 			cnt += 1
 	
-	p_multi = np.array([isinstance(query, tuple) for query in queries])
+	p_multi = np.array([0 if isinstance(query, tuple) else 1 for query in queries])
+	print(p_multi.sum())
 	leaves = [i for i in range(1, tree.n + 1) if tree.isLeaf[i]]
-	lengths = rng.multinomial(LEN_LIMIT - total_length - (q - p_multi.sum()), p_multi / p_multi.sum()) + 1
+	# lengths = (rng.multinomial(LEN_LIMIT - total_length - p_multi.sum(), p_multi / p_multi.sum()) + 1) + p_multi
+	lengths = p_multi
+	lengths[rng.choice([i for i, query in enumerate(queries) if not isinstance(query, tuple)], LEN_LIMIT - total_length - p_multi.sum())] += 1
+	buf = "".join(rng.choice(list(alphabet), LEN_LIMIT - total_length - p_multi.sum(), p = p))
+	rand_leaves = rng.choice(leaves, q)
+	sliced = 0
 	for i, l in enumerate(lengths):
 		if l:
-			queries[i] = (rng.choice(leaves), "".join(rng.choice(list(alphabet), l, p = p)))
+			if i % 100 == 0:
+				print(i, flush = True)
+			queries[i] = (rand_leaves[i], buf[sliced : sliced + l])
+			sliced += l
 
 	return queries
 
@@ -380,7 +389,8 @@ class Cases:
 	
 	def gen(self, n, **extra_param):
 		self.cnt += 1
-		if self.cnt < 26:
+		if self.cnt <= 57 or "genQuery" not in extra_param or extra_param["genQuery"] != genRandMixedQuery:
+			log(f"[Warning] Skip teatcase {self.cnt}")
 			return
 		genTestcase(f"{self.prefix}{self.cnt}", n, **extra_param)
 	
@@ -399,7 +409,6 @@ for i in range(1, TASK_NUM + 1):
 	# add testcases below
 	rng = np.random.default_rng()
 
-	'''
 	testcase.gen(N_LIMIT, genTree = genChain)
 	for genQuery in (genRandValidQuery, genRandUniformQuery, genRandMixedQuery):
 		testcase.gen(N_LIMIT - rng.integers(10), genTree = genDoubleChain, genQuery = genQuery)
@@ -425,8 +434,7 @@ for i in range(1, TASK_NUM + 1):
 				alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.8, 0.2], nviolate = nviolate)
 			testcase.gen(N_LIMIT - rng.integers(10), genTree = genShortTree, genPhone = genLeafyNumbers, genQuery = genQuery,
 				alphabet = rng.choice(list(ALPHABET), 2, replace = False), p = [0.8, 0.2], nviolate = nviolate)
-	'''
-	testcase.skip(64)
+	
 	for genQuery in (genRandValidQuery, genRandUniformQuery, genRandMixedQuery):
 		for genTree in (genRandTree, genTallTree):
 			testcase.gen(N_LIMIT - rng.integers(10), genTree = genTree, genPhone = genUnbalancedNumbers, genQuery = genQuery,

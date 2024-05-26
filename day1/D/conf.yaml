@@ -15,7 +15,7 @@ name: dialing
 partial score: false
 samples:
   - cases: [1, 2, 3]
-time limit: 1.0
+time limit: 1.5
 title:
   zh-cn: 拨打电话
   # en: dialing

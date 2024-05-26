@@ -1,0 +1,13 @@
+\begin{frame}{题目大意}
+	给定一个 $n - 1$ 个点的无向图，点的编号为 $2 \sim n$。对于所有的 $2 \le u < v \le n$，边 $(u, v)$ 存在当且仅当 $v$ 是 $u$ 的正整数倍。定义 $f(u, v)$ 表示 $u$ 与 $v$ 是否连通：当 $u, v$ 连通时 $f(u, v) = 1$，否则 $f(u, v) = 0$。求：
+
+	$\left(\sum_{u = 2} ^ {n - 1} \sum_{v = u + 1} ^ n f(u, v) \cdot u \cdot v\right) \bmod {998244353}$
+
+\end{frame}
+
+\begin{frame}{题解}
+注意到，对于所有 $x \le \lfloor \frac{n + 1}{2} \rfloor$ 的结点 $x$，$x$ 与 $2x$ 间有一条边，而 $2x$ 与 $2$ 之间有一条边，因此所有 $2 \sim \lfloor \frac{n + 1}{2} \rfloor$ 范围内的结点连通。而对于 $x > \lfloor \frac{n + 1}{2} \rfloor$ 的结点 $x$，$x$ 不与 $2 \sim \lfloor \frac{n + 1}{2} \rfloor$ 中的结点连通当且仅当 $x$ 为素数。因此整个图仅包含若干个单独的素数结点与一个大的连通块。\pause
+
+考虑计算不连通的点对之间的贡献。不难发现，只需要求出所有大于 $ \lfloor \frac{n + 1}{2} \rfloor$ 的素数的和与平方和。使用 Min\_25 筛或分块打表均可以。
+
+\end{frame}

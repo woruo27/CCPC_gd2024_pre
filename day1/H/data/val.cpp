@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include "testlib.h"
 
+int qwq=0;
 signed main (int argc, char *argv[])
 {
 	registerValidation(argc, argv);
@@ -9,6 +10,7 @@ signed main (int argc, char *argv[])
 	{
 		int n = inf.readInt(1, 500, "n"); inf.readSpace();
 		int m = inf.readInt(1, 500, "m"); inf.readEoln();
+		qwq+=T*n*m;
 		for (int i = 1; i <= m; i++)
 		{
 			inf.readInt(0, 500, "b_i");
@@ -29,5 +31,7 @@ signed main (int argc, char *argv[])
 		}
 	}
 	inf.readEof();
+	std::cerr<<qwq<<std::endl;
+	assert(qwq<=300000); 
 	return 0;
 }

@@ -1,0 +1,71 @@
+\begin{frame}{简要题意}
+	
+	给定序列 $a_1, \cdots, a_n$，求满足以下要求的序列 $b_1, \cdots, b_n$ 的数量:
+	\begin{itemize}
+		\item $\prod_{i=1}^n b_i = m$；
+		\item $1\le \sum_{i=1}^n \left[a_i \ne b_i\right] \le l$，其中 $[x]$ 当 $x$ 成立时为 $1$，否则为 $0$.
+	\end{itemize}
+
+	$1\le l\le n\le 100, 1\le a_i \le m \le 10^{11}.$
+
+\end{frame}
+
+\begin{frame}{我会暴力}
+	
+	不难想到 DP: 记 $f(i, j, k)$ 表示 $b_1, \cdots, b_i$ 中有 $j$ 个与 $a_\cdot$ 不同，前缀乘积为 $k$ 的方案数. 该 DP 中，显然 $k$ 为 $m$ 的因数时状态才有意义.
+
+	枚举 $b_i$ 转移:
+
+	$$f(i, j, k) = \sum_{d|m} f\left(i - 1, j - [d \ne a_i], k / d\right)$$
+
+	直接实现上述 DP，复杂度为 $O\left(nld^2(m)\right)$，其中 $d(m)$ 表示 $m$ 的因数个数. 在本题数据范围下，$d(m) \le 4032$，$d^2(m) \le 16,257,024$，在 $m=97,772,875,200$ 时取等.
+	
+	显然，这一复杂度无法通过本题.
+
+\end{frame}
+
+\begin{frame}{优化一}
+	
+	观察转移方程
+
+	$$f(i, j, k) = \sum_{d|m} f\left(i - 1, j - [d \ne a_i], k / d\right)$$
+
+	考虑主动转移，即枚举 $m$ 的两个因数 $k/d$ 和 $d$ 进行统计. 如果只枚举满足 $(k/d) \cdot d \le m$ 的那些因数组合，则可以少处理一些无效转移.
+
+	这个优化可以将需要处理的因数对数从原来的 $16,257,024$ 对降低到 $8,130,527$. 应该没有人只写这个优化可以通过本题.
+
+\end{frame}
+
+\begin{frame}{优化二}
+	
+	$$f(i, j, k) = \sum_{d|m} f\left(i - 1, j - [d \ne a_i], k / d\right)$$
+
+	更进一步地，我们只需要预处理那些满足 $(d_1\cdot d_2) | m$ 的因数对 $\left(d_1, d_2\right)$ 进行转移即可.
+
+	打表可知，这个优化可以将需要处理的因数对数从原来的 $16,257,024$ 对降低到 $816,480$（恰好在同一个 $m$ 时取到最大值）.
+	
+	出题人写的这个做法在 OJ 上需要 1.5s 左右，希望没有人用这个做法松过本题.
+
+\end{frame}
+
+\begin{frame}{推式子}
+	
+	$$\begin{aligned}
+		f(i, j, k) &= \sum_{d|m} f\left(i - 1, j - [d \ne a_i], k / d\right)\\
+		&= \sum_{d|m} f\left(i - 1, j - 1, k / d\right) - f\left(i - 1, j - 1, k / a_i\right) + f\left(i - 1, j, k / a_i\right)\\
+		&= \sum_{d|k} f\left(i - 1, j - 1, d\right) - f\left(i - 1, j - 1, k / a_i\right) + f\left(i - 1, j, k / a_i\right)
+	\end{aligned}$$
+
+	求和符号的部分可以看成在 $m$ 的素因数上高维前缀和，后面部分对 $a_i$ 预处理后可以 $O(1)$ 计算. 由此可将 DP 复杂度降至 $O(nld(m)\omega(m))$，其中 $\omega(m)$ 表示 $m$ 的不同素因数个数.
+
+	$2\times 3\times 5\times \cdots \times 29 = 6,469,693,230<10^{11} < 6,469,693,230\times 31$，故 $d(m)\omega(m) \le 40320$，可以快速通过本题. 总复杂度还要加上求所有因数的复杂度，标程是直接 $O\left(\sqrt{m}\right)$ 处理的.
+
+\end{frame}
+
+\begin{frame}{高维前缀和}
+	
+	由于每个数 $a$ 可以被唯一分解为 $a=\prod_{p\in\mathbb{P}} p^{c_p}$，故可以将 $a$ 看成无限维坐标中的一个点 $\left(c_2, c_3, c_5, c_7, \cdots\right)$.
+
+	求 $\sum_{d|k} f(\cdot, \cdot, d)$ 相当于一个高维矩形区域求和，仿照二维前缀和的处理方式求 $\omega(m)$ 遍即可.
+
+\end{frame}

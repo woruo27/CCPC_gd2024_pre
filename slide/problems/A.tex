@@ -1,0 +1,15 @@
+\begin{frame}{A 祥子的工作 by \itshape {johhhh}}
+\begin{block}{题目描述}
+已知$X_1,X_2,\cdots,X_n$满足一个离散的概率分布，且独立同分布，求$\text{Pr}[X_1+X_2+\cdots+X_n \ge a]$
+\end{block}
+\begin{block}{算法}
+签到题。
+
+设$p_{i,j}$表示前$i$天恰好赚$j$分的概率，有递推公式$p_{i,j}=\frac{1}{101} \sum_{k=0}^{100} p_{i-1,j-k}$，拿个前缀和优化就可以.
+
+时间复杂度$O\left(100 n a \right)$
+\end{block}
+
+丰川祥子的姓名第一个字拼起来（丰祥）意外地像一个中国名字
+
+\end{frame}

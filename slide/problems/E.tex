@@ -1,0 +1,25 @@
+\frame
+{
+  \frametitle{E 计数题 by \itshape rsy}
+
+ 	定义无向图 $G$ 的权值 $f(G)$ 为 $G$ 中所有连通块大小的平方和.
+
+	对于 $1 \sim n$ 的所有错排 $p$，求 $f(G(p))$ 之和对 $998244353$ 取模后的结果.
+
+	 $2 \le n < 998244353$.
+
+}
+\frame
+{
+  \frametitle{E 计数题 by \itshape rsy}
+
+ 	考虑计算每个连通块（轮换）的贡献: $f(n)=\sum_{k=2}^n k^2 \binom n k (k-1)! g(n-k)$，其中 $g(n)$ 为长度为 $n$ 的错排个数. \pause
+
+	$$f(n)=\sum_{k=2}^n k^2 \binom n k (k-1)! g(n-k)$$
+	$$=\sum_{k=2}^n k^2 \frac {n!}{(n-k)!k!} (k-1)! g(n-k)=n!\sum_{k=2}^n k \frac {g(n-k)}{(n-k)!}$$
+
+	记 $A(x)=\sum_{k=2}^\infty kx^k =\frac {x}{(1-x)^2}-x$，$G(x)=e^{\ln \frac 1 {1-x}-x}=\frac {e^{-x}}{1-x}$，则 $f(n) =n![x ^ n]A(x)G(x) = n![x ^ n]\left(\frac {xe^{-x}}{(1-x)^3} - \frac {e^{-x}}{1-x}+e^{-x}\right)$. \pause
+
+	可以拆成三部分计算，利用求导不难得到每部分的递推式. 使用分块打表或整式递推加速计算即可.
+
+}

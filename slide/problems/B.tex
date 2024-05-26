@@ -1,30 +1,34 @@
-\begin{frame}{题目大意}
+\begin{frame}{简要题意}
 	
-	
+	定义 $LCPS\left(s, t\right)$ 为最长的 $r$ 使得 $s_1 \cdots s_{|r|} = t_{|t| - |r| + 1} \cdots t_{|t|} = r$. 求
+
+	$$\sum_{i=1}^L \sum_{j=1}^L C^{\left|LCPS\left(s_i, s_j\right)\right|} \bmod{P}.$$
+
+	$1\le L, \sum_{i=1}^L \left|s_i\right|\le 3\times 10^6, 2\le C < P < 2^{30}$.
 
 \end{frame}
 
-\begin{frame}{题解}
+\begin{frame}{观察}
 	
-	先考虑在恒星同一侧连成一线的情况。对于给定的周期集合 $S$，可以证明会合周期（从上一次连成一条线到下一次连成一条线之间的时间间隔）为
+	虽然 $LCPS$ 看上去没有什么规律, 但是注意到输入串的所有前缀和所有后缀的数量都是与总串长相等的 (如果去重则更少) , 可以考虑用后缀去查是否存在对应的前缀, 并更新相应 $\left(s_i, s_j\right)$ 的答案. 对前缀建立 Hash 表, 即可 $\Theta(1)$ 查询每个后缀. \pause
 
-$$T(S)=\frac{\mathrm{lcm}\{x|x\in S\}}{\gcd\{\left|x-y\right||x,y\in S, x\ne y\}}$$ \pause
+	这个做法有一个问题: 一个前缀可能对应多个原串, 如果需要统计每对 $\left(s_i, s_j\right)$ 的 $LCPS$ 长度再计算答案, 复杂度可能会爆炸. \pause
 
-可以这么理解这个公式：以恒星为参考系，$S$ 所对应的行星每次会合在同一个方向上的周期为 $\mathrm{lcm}\{x|x\in S\}$，而在这段时间中，可能相会的地方恰有 $\gcd$ 处。
-
+	因此, 我们需要设计一种方法, 通过查询到的前缀直接计算该前缀的贡献, 并且想办法容斥保证每对 $\left(s_i, s_j\right)$ 只有匹配上的最长前缀/后缀的原始贡献计入答案. 
 
 \end{frame}
 
-\begin{frame}{题解}
+\begin{frame}{容斥}
+	
+	考虑什么时候一个串 $s_i$ 会有多个前缀被另一个串 $s_j$ 的相应后缀匹配上. 假设已知 $s_{i,1}\cdots s_{i,k} = s_{j,\left|s_j\right|-k+1}\cdots s_{j, \left|s_j\right|}$ 且 $s_{i,1}\cdots s_{i,l} = s_{j,\left|s_j\right|-l+1}\cdots s_{j, \left|s_j\right|}$, 
+	其中 $l<k$, 那么不难发现:\pause
 
-同理可以得出，如果允许在不同侧连成一线，会合周期为上式给出的时间的一半。故在连续的 $\mathrm{lcm}\{t_1,\cdots,t_n\}$ 时间内，$S$ 在同一条线上的次数为
+	$s_{i,1}\cdots s_{i,l}$ 应该是 $s_{i,1}\cdots s_{i,k}$ 的一个 border!\pause
 
-$$f(S)=\frac{2\cdot\mathrm{lcm}\{t_1,\cdots,t_n\}}{T(S)}$$ \pause
+	这启发我们可以对每个串跑 KMP, 用 fail 来处理容斥. 注意到 border 的 border 仍是 border, 这个容斥的形式非常好看. \pause
 
-而恰好只有 $S$ 在一条线上的次数为
-
-$$g(S)=f(S)-\sum_{S\subset T\subseteq U}g(T)$$ \pause
-
-前(hou)缀作差即可。复杂度不超过 $O\left(2^n(n+\log t_i)\right)$。
+	一个前缀会在每个 border 处统计一次该 border 的贡献. 因此, 我们只需要将当前前缀的原始贡献减去其最长 border 的原始贡献. 把一个前缀的原始贡献拆分成其 border 贡献之和后, 我们就可以在查询后缀时直接把对应贡献乘上前缀出现次数计入答案即可. \pause
+	
+	总复杂度 $O\left(\sum_{i=1}^L \left|s_i\right|\right)$. 注意 $C$ 的幂次可以递推, 如果每次暴力算会多个快速幂的 $\log$, 有可能无法通过本题. 
 
 \end{frame}

@@ -3,7 +3,8 @@
 \beamer@sectionintoc {3}{C DFS 序 by \itshape EliminateSpace}{16}{0}{3}
 \beamer@sectionintoc {4}{E 循环赛 by \itshape ckw20}{23}{0}{4}
 \beamer@sectionintoc {5}{B 腊肠披萨 by \itshape SpiritualKhorosho}{37}{0}{5}
-\beamer@sectionintoc {6}{J 另一个计数问题 by \itshape Renshey}{44}{0}{6}
-\beamer@sectionintoc {7}{F 图 by \itshape xiaolilsq}{48}{0}{7}
-\beamer@sectionintoc {8}{H 小班课 by \itshape gyh-20}{55}{0}{8}
-\beamer@sectionintoc {9}{A 田字格 by \itshape Itst}{63}{0}{9}
+\beamer@sectionintoc {6}{J 另一个计数问题 by \itshape Renshey}{47}{0}{6}
+\beamer@sectionintoc {7}{F 图 by \itshape xiaolilsq}{51}{0}{7}
+\beamer@sectionintoc {8}{H 小班课 by \itshape gyh-20}{58}{0}{8}
+\beamer@sectionintoc {9}{A 田字格 by \itshape Itst}{66}{0}{9}
+\beamer@sectionintoc {10}{D 拨打电话 by \itshape SpiritualKhorosho}{74}{0}{10}
